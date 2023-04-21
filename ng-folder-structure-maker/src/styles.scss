@@ -4,16 +4,45 @@
   display: flex;
 }
 
+.flex-items-start {
+  align-items: flex-start;
+}
+
+.flex-items-center {
+  align-items: center;
+}
+
 .flex-items-end {
   align-items: flex-end;
 }
 
-.margin-0 {
-  margin: 0;
+.flex-justify-center {
+  justify-content: center;
+}
+
+.margin-y-0 {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .margin-left-10 {
   margin-left: 10px;
+}
+
+.margin-left-8 {
+  margin-left: 8px;
+}
+
+.margin-left-5 {
+  margin-left: 5px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.padding-15 {
+  padding: 15px;
 }
 
 .width-10 {
@@ -30,4 +59,15 @@
 
 .height-30 {
   height: 30px;
+}
+
+.height-80 {
+  height: 80px;
+}
+
+.bg-black {
+  background-color: black;
+}
+.font-color-white {
+  color: white;
 }
