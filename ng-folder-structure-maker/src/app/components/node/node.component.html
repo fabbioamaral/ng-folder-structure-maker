@@ -1,7 +1,16 @@
-<div class="node-container margin-left-10 height-30 d-flex flex-items-start">
-  <app-node-branch></app-node-branch>
-  <app-node-details></app-node-details>
-</div>
+<div class="node-container">
+  <div class="margin-left-10 height-30 d-flex flex-items-start">
+    <app-node-branch></app-node-branch>
+    <app-node-details [node]="node"></app-node-details>
+  </div>
 
-<!-- <div class="node-branch height-30 width-10"></div>
-<div class="node-branch node-non-first-node"></div> -->
+  <div *ngIf="node?.children" class="margin-top-10">
+    <div
+      *ngFor="let nodeChildren of node?.children"
+      class="margin-left-35 height-30 d-flex flex-items-start"
+    >
+      <app-node-branch></app-node-branch>
+      <app-node-details [node]="nodeChildren"></app-node-details>
+    </div>
+  </div>
+</div>

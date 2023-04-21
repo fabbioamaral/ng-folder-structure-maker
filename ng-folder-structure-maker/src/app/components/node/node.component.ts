@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NodeModel } from 'src/app/models/node.model';
 
 @Component({
   selector: 'app-node',
   templateUrl: './node.component.html',
-  styleUrls: ['./node.component.scss']
+  styleUrls: ['./node.component.scss'],
 })
-export class NodeComponent {
+export class NodeComponent implements OnInit {
+  @Input() node: NodeModel | undefined;
 
+  ngOnInit() {}
 }
