@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { NodeModel } from 'src/app/models/node.model';
 
 @Component({
@@ -11,4 +11,13 @@ export class NodeComponent implements OnInit {
   @Input() nodeIndex: number | undefined;
 
   ngOnInit() {}
+
+  addChildNode() {
+    const randomId = Math.round(Math.random() * 100);
+    this.node?.children?.push({
+      type: 'unset',
+      id: randomId.toString(),
+      isRoot: false,
+    });
+  }
 }

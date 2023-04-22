@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NodeModel } from 'src/app/models/node.model';
 
 @Component({
@@ -8,4 +8,11 @@ import { NodeModel } from 'src/app/models/node.model';
 })
 export class NodeDetailsComponent {
   @Input() node: NodeModel | undefined;
+  @Output() addChildNodeEvent = new EventEmitter();
+
+  constructor() {}
+
+  addNodeChild() {
+    this.addChildNodeEvent.emit();
+  }
 }

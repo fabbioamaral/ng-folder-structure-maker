@@ -1,7 +1,9 @@
 <div class="node-info margin-left-8 d-flex">
-  <div class="height-30 d-flex flex-items-end">
+  <div
+    class="height-30 d-flex flex-items-end"
+    *ngIf="node?.type === 'file' || node?.type === 'folder'"
+  >
     <img
-      *ngIf="node?.type === 'file' || 'folder'"
       class="height-15"
       [src]="
         node?.type === 'file'
@@ -10,14 +12,15 @@
       "
       alt="folder icon"
     />
-    <p
-      *ngIf="node?.type === 'file' || 'folder'"
-      class="margin-y-0 margin-left-5"
-    >
+    <p class="margin-y-0 margin-left-5">
       {{ node?.name }}
     </p>
     <div class="buttons-div">
-      <button class="margin-left-5" *ngIf="node?.type === 'folder'">
+      <button
+        class="margin-left-5"
+        *ngIf="node?.type === 'folder'"
+        (click)="addNodeChild()"
+      >
         <img class="width-10" [src]="'assets/icons/add.png'" />
       </button>
       <button class="margin-left-5">
@@ -25,4 +28,12 @@
       </button>
     </div>
   </div>
+</div>
+
+<div
+  class="margin-left-8 height-30 d-flex flex-items-end"
+  *ngIf="node?.type === 'unset'"
+>
+  <button>File</button>
+  <button>Folder</button>
 </div>

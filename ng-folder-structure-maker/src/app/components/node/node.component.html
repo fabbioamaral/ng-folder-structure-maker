@@ -7,7 +7,10 @@
       *ngIf="!node?.isRoot"
       [isFirstBranch]="nodeIndex === 0"
     ></app-node-branch>
-    <app-node-details [node]="node"></app-node-details>
+    <app-node-details
+      [node]="node"
+      (addChildNodeEvent)="addChildNode()"
+    ></app-node-details>
   </div>
 
   <div *ngIf="node?.children">
