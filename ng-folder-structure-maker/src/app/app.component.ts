@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
   toggleFormDisplay() {
     this.newFolderRootForm.reset();
     this.showFormToAddFolderToRoot = !this.showFormToAddFolderToRoot;
-    this.nodes$.subscribe((nodes) => console.log(nodes));
   }
 
   addFolderToRoot(folderName: string) {

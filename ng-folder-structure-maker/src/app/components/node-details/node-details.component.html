@@ -20,10 +20,11 @@
         class="margin-left-5"
         *ngIf="node?.type === 'folder'"
         (click)="addNodeChild()"
+        type="button"
       >
         <img class="width-10" [src]="'assets/icons/add.png'" />
       </button>
-      <button class="margin-left-5" (click)="deleteNodeChild()">
+      <button class="margin-left-5" (click)="deleteNodeChild()" type="button">
         <img class="width-10" [src]="'assets/icons/delete.png'" />
       </button>
     </div>
@@ -34,6 +35,6 @@
   class="margin-left-8 height-30 d-flex flex-items-end"
   *ngIf="node?.type === 'unset'"
 >
-  <button (click)="createNewNamedNode('file')">File</button>
-  <button (click)="createNewNamedNode('folder')">Folder</button>
+  <button (click)="createNewNamedNode('file')" type="button">File</button>
+  <button (click)="createNewNamedNode('folder')" type="button">Folder</button>
 </div>
