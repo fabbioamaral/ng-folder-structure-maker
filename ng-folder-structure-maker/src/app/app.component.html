@@ -11,8 +11,8 @@
     >
       Add folder to root
     </button>
-    <div *ngFor="let node of stubFolderStructure">
-      <app-node [node]="node"></app-node>
+    <div *ngFor="let node of stubFolderStructure; let i = index">
+      <app-node [node]="node" [nodeIndex]="i"></app-node>
     </div>
   </div>
 </div>

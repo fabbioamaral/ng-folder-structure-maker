@@ -8,6 +8,7 @@ import { NodeModel } from 'src/app/models/node.model';
 })
 export class NodeComponent implements OnInit {
   @Input() node: NodeModel | undefined;
+  @Input() nodeIndex: number | undefined;
 
   ngOnInit() {}
 }
