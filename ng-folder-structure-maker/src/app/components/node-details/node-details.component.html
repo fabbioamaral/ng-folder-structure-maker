@@ -34,6 +34,6 @@
   class="margin-left-8 height-30 d-flex flex-items-end"
   *ngIf="node?.type === 'unset'"
 >
-  <button>File</button>
-  <button>Folder</button>
+  <button (click)="createNewNamedNode('file')">File</button>
+  <button (click)="createNewNamedNode('folder')">Folder</button>
 </div>

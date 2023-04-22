@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NodeModel } from 'src/app/models/node.model';
+import { NodeModel, NodeType } from 'src/app/models/node.model';
 
 @Component({
   selector: 'app-node-details',
@@ -10,8 +10,8 @@ export class NodeDetailsComponent {
   @Input() node: NodeModel | undefined;
   @Output() addChildNodeEvent = new EventEmitter();
   @Output() deleteNode = new EventEmitter<string>();
-  @Output() createNewFile = new EventEmitter();
-  @Output() createNewFolder = new EventEmitter();
+  @Output() createNewFileEvent = new EventEmitter<NodeModel>();
+  @Output() createNewFolderEvent = new EventEmitter<NodeModel>();
 
   constructor() {}
 
@@ -21,5 +21,20 @@ export class NodeDetailsComponent {
 
   deleteNodeChild() {
     this.deleteNode.emit(this.node?.id);
+  }
+
+  createNewNamedNode(nodeType: NodeType) {
+    const newNode: NodeModel = {
+      name: 'abc',
+      type: nodeType,
+      id: this.node!.id,
+      children: [],
+      isRoot: false,
+    };
+    this.createNewFileEvent.emit(newNode);
+  }
+
+  createNewFolder() {
+    this.createNewFolderEvent.emit();
   }
 }
