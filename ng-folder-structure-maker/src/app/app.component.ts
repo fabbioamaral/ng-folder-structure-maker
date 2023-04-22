@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
    * @param folderName the new's folder name
    */
   addFolderToRoot(folderName: string): void {
-    console.log('hello');
     this.nodes$.pipe(take(1)).subscribe((nodes) => {
       const newFolderWithinRoot: NodeModel = {
         name: folderName,
@@ -46,6 +45,17 @@ export class AppComponent implements OnInit {
       nodes.push(newFolderWithinRoot);
       this.nodeService.setNodes(nodes);
       this.toggleFormDisplay();
+    });
+  }
+
+  /**
+   * Deletes a folder located at the root
+   * @param nodeId the id of the node that will be deleted
+   */
+  deleteNode(nodeId: string) {
+    this.nodes$.pipe(take(1)).subscribe((nodes) => {
+      const updatedNodes = nodes.filter((n) => n.id !== nodeId);
+      this.nodeService.setNodes(updatedNodes);
     });
   }
 }

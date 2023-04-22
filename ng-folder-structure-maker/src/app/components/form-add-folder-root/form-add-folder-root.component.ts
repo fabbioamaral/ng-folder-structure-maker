@@ -30,7 +30,6 @@ export class FormAddFolderRootComponent implements OnInit {
    * user has clicked on the 'Add' button
    */
   triggerSubmitEvent(): void {
-    console.log('adasd');
     const folderName = this.newFolderRootForm.value.newFolderName;
     this.submitClick.emit(folderName);
   }

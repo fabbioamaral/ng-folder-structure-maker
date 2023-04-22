@@ -18,7 +18,11 @@
       (cancelClick)="toggleFormDisplay()"
     ></app-form-add-folder-root>
     <div *ngFor="let node of nodes$ | async; let i = index">
-      <app-node [node]="node" [nodeIndex]="i"></app-node>
+      <app-node
+        [node]="node"
+        [nodeIndex]="i"
+        (deletingChildNode)="deleteNode($event)"
+      ></app-node>
     </div>
   </div>
 </div>
