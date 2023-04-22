@@ -14,7 +14,11 @@ export class NodeComponent implements OnInit {
 
   ngOnInit() {}
 
-  addChildNode() {
+  /**
+   * Adds child node of type 'unset' to the children property of the parent node.
+   *
+   */
+  addChildNode(): void {
     const randomId = Math.round(Math.random() * 100);
     this.node?.children?.push({
       type: 'unset',
@@ -23,11 +27,19 @@ export class NodeComponent implements OnInit {
     });
   }
 
-  listParentNode(id: string) {
+  /**
+   * Deletes a node
+   *
+   * @param id node id that will be deleted
+   */
+  deleteItem(id: string): void {
     this.node!.children = this.node?.children?.filter((i) => i.id !== id);
   }
 
-  addNamedNode(newNamedNode: NodeModel) {
+  /**
+   * Replaces a child node of type 'unset' with a well defined node
+   */
+  addNamedNode(newNamedNode: NodeModel): void {
     const nodeIndex = this.node!.children!.findIndex(
       (n) => n.id === newNamedNode.id
     );

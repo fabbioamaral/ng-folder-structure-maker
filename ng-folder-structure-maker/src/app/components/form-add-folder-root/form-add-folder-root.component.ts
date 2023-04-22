@@ -15,18 +15,31 @@ export class FormAddFolderRootComponent implements OnInit {
     this.initializeForm();
   }
 
-  initializeForm() {
+  /**
+   * Initialize form group responsible for retrieving the new folder's name
+   * which may be added to root
+   */
+  initializeForm(): void {
     this.newFolderRootForm = new FormGroup({
       newFolderName: new FormControl('', Validators.required),
     });
   }
 
-  triggerSubmitEvent() {
+  /**
+   * Triggers event responsible for letting parent component know that
+   * user has clicked on the 'Add' button
+   */
+  triggerSubmitEvent(): void {
+    console.log('adasd');
     const folderName = this.newFolderRootForm.value.newFolderName;
     this.submitClick.emit(folderName);
   }
 
-  triggerCancelEvent() {
+  /**
+   * Triggers event responsible for letting parent component know that
+   * user has clicked on the 'Cancel' button
+   */
+  triggerCancelEvent(): void {
     this.cancelClick.emit();
   }
 }

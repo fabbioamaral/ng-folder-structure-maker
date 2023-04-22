@@ -12,7 +12,6 @@ import { NodeService } from './services/node.service';
 export class AppComponent implements OnInit {
   nodes$!: Observable<NodeModel[]>;
   showFormToAddFolderToRoot = false;
-  newFolderRootForm!: FormGroup;
 
   constructor(private nodeService: NodeService) {}
 
@@ -20,22 +19,22 @@ export class AppComponent implements OnInit {
     this.nodes$ = this.nodeService.getNodes();
 
     this.nodeService.init();
-
-    this.initializeForm();
   }
 
-  initializeForm() {
-    this.newFolderRootForm = new FormGroup({
-      newFolderName: new FormControl('', Validators.required),
-    });
-  }
-
-  toggleFormDisplay() {
-    this.newFolderRootForm.reset();
+  /**
+   * Display or hide the form to add a new folder to root
+   */
+  toggleFormDisplay(): void {
     this.showFormToAddFolderToRoot = !this.showFormToAddFolderToRoot;
   }
 
-  addFolderToRoot(folderName: string) {
+  /**
+   * Adds a new folder to root
+   *
+   * @param folderName the new's folder name
+   */
+  addFolderToRoot(folderName: string): void {
+    console.log('hello');
     this.nodes$.pipe(take(1)).subscribe((nodes) => {
       const newFolderWithinRoot: NodeModel = {
         name: folderName,

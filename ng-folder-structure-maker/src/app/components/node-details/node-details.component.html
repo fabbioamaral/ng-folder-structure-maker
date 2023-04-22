@@ -19,12 +19,16 @@
       <button
         class="margin-left-5"
         *ngIf="node?.type === 'folder'"
-        (click)="addNodeChild()"
+        (click)="this.addChildNodeEvent.emit()"
         type="button"
       >
         <img class="width-10" [src]="'assets/icons/add.png'" />
       </button>
-      <button class="margin-left-5" (click)="deleteNodeChild()" type="button">
+      <button
+        class="margin-left-5"
+        (click)="this.deleteNode.emit(this.node?.id)"
+        type="button"
+      >
         <img class="width-10" [src]="'assets/icons/delete.png'" />
       </button>
     </div>

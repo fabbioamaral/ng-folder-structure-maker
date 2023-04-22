@@ -11,7 +11,7 @@
       [node]="node"
       (addChildNodeEvent)="addChildNode()"
       (deleteNode)="this.deletingChildNode.emit($event)"
-      (createNewFileEvent)="this.addingChildNode.emit($event)"
+      (createNewNodeEvent)="this.addingChildNode.emit($event)"
     ></app-node-details>
   </div>
 
@@ -23,7 +23,7 @@
       <app-node
         [node]="nodeChildren"
         [nodeIndex]="i"
-        (deletingChildNode)="listParentNode($event)"
+        (deletingChildNode)="deleteItem($event)"
         (addingChildNode)="addNamedNode($event)"
       ></app-node>
     </div>

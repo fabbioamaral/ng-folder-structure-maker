@@ -10,19 +10,15 @@ export class NodeDetailsComponent {
   @Input() node: NodeModel | undefined;
   @Output() addChildNodeEvent = new EventEmitter();
   @Output() deleteNode = new EventEmitter<string>();
-  @Output() createNewFileEvent = new EventEmitter<NodeModel>();
-  @Output() createNewFolderEvent = new EventEmitter<NodeModel>();
+  @Output() createNewNodeEvent = new EventEmitter<NodeModel>();
 
   constructor() {}
 
-  addNodeChild() {
-    this.addChildNodeEvent.emit();
-  }
-
-  deleteNodeChild() {
-    this.deleteNode.emit(this.node?.id);
-  }
-
+  /**
+   * Triggers event that will replace a node of type 'unset'
+   * with a named and well defined node
+   * @param nodeType the named and well defined node
+   */
   createNewNamedNode(nodeType: NodeType) {
     let name;
     if (nodeType === 'file') {
@@ -38,10 +34,6 @@ export class NodeDetailsComponent {
       children: [],
       isRoot: false,
     };
-    this.createNewFileEvent.emit(newNode);
-  }
-
-  createNewFolder() {
-    this.createNewFolderEvent.emit();
+    this.createNewNodeEvent.emit(newNode);
   }
 }
