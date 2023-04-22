@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NodeModel } from 'src/app/models/node.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { NodeModel } from 'src/app/models/node.model';
 export class NodeComponent implements OnInit {
   @Input() node: NodeModel | undefined;
   @Input() nodeIndex: number | undefined;
+  @Output() deletingChildNode = new EventEmitter<string>();
 
   ngOnInit() {}
 
@@ -19,5 +20,13 @@ export class NodeComponent implements OnInit {
       id: randomId.toString(),
       isRoot: false,
     });
+  }
+
+  deleteChildNode(id: string) {
+    this.deletingChildNode.emit(id);
+  }
+
+  listParentNode(id: string) {
+    this.node!.children = this.node?.children?.filter((i) => i.id !== id);
   }
 }

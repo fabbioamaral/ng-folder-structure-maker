@@ -10,6 +10,7 @@
     <app-node-details
       [node]="node"
       (addChildNodeEvent)="addChildNode()"
+      (deleteNode)="deleteChildNode($event)"
     ></app-node-details>
   </div>
 
@@ -18,7 +19,11 @@
       *ngFor="let nodeChildren of node?.children; let i = index"
       class="margin-left-25"
     >
-      <app-node [node]="nodeChildren" [nodeIndex]="i"></app-node>
+      <app-node
+        [node]="nodeChildren"
+        [nodeIndex]="i"
+        (deletingChildNode)="listParentNode($event)"
+      ></app-node>
     </div>
   </div>
 </div>

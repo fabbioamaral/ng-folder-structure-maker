@@ -9,10 +9,17 @@ import { NodeModel } from 'src/app/models/node.model';
 export class NodeDetailsComponent {
   @Input() node: NodeModel | undefined;
   @Output() addChildNodeEvent = new EventEmitter();
+  @Output() deleteNode = new EventEmitter<string>();
+  @Output() createNewFile = new EventEmitter();
+  @Output() createNewFolder = new EventEmitter();
 
   constructor() {}
 
   addNodeChild() {
     this.addChildNodeEvent.emit();
+  }
+
+  deleteNodeChild() {
+    this.deleteNode.emit(this.node?.id);
   }
 }
