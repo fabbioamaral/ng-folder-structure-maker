@@ -11,6 +11,7 @@ import {
   HttpHandler,
 } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormAddFolderRootComponent } from './components/form-add-folder-root/form-add-folder-root.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NodeComponent,
     NodeDetailsComponent,
     NodeBranchComponent,
+    FormAddFolderRootComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, FormsModule],
   providers: [],

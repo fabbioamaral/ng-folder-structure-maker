@@ -37,11 +37,10 @@ export class AppComponent implements OnInit {
     this.showFormToAddFolderToRoot = !this.showFormToAddFolderToRoot;
   }
 
-  addFolderToRoot() {
+  addFolderToRoot(folderName: string) {
     this.nodes$.pipe(take(1)).subscribe((nodes) => {
-      const newFoldersName = this.newFolderRootForm.value.newFolderName;
       const newFolderWithinRoot: NodeModel = {
-        name: newFoldersName,
+        name: folderName,
         id: Math.round(Math.random() * 100).toString(),
         type: 'folder',
         children: [],

@@ -12,39 +12,11 @@
     >
       Add folder to root
     </button>
-    <div
+    <app-form-add-folder-root
       *ngIf="showFormToAddFolderToRoot"
-      class="form-add-new-folder-root padding-15"
-    >
-      <form [formGroup]="newFolderRootForm" (submit)="addFolderToRoot()">
-        <label for="newFoldersName">New Folder's Name</label>
-        <input
-          class="margin-left-10"
-          id="newFoldersName"
-          type="text"
-          formControlName="newFolderName"
-        />
-        <button
-          class="bg-black font-color-white padding-15 margin-left-10 width-75"
-          [disabled]="!newFolderRootForm.valid"
-        >
-          Add
-        </button>
-        <button
-          class="padding-15 margin-left-10 width-75"
-          (click)="toggleFormDisplay()"
-          type="button"
-        >
-          Cancel
-        </button>
-      </form>
-      <p
-        *ngIf="!newFolderRootForm.valid && newFolderRootForm.touched"
-        class="font-color-red"
-      >
-        Folder's name cannot be blank.
-      </p>
-    </div>
+      (submitClick)="addFolderToRoot($event)"
+      (cancelClick)="toggleFormDisplay()"
+    ></app-form-add-folder-root>
     <div *ngFor="let node of nodes$ | async; let i = index">
       <app-node [node]="node" [nodeIndex]="i"></app-node>
     </div>

@@ -1,0 +1,30 @@
+<div class="form-add-new-folder-root padding-15">
+  <form [formGroup]="newFolderRootForm" (submit)="triggerSubmitEvent()">
+    <label for="newFoldersName">New Folder's Name</label>
+    <input
+      class="margin-left-10"
+      id="newFoldersName"
+      type="text"
+      formControlName="newFolderName"
+    />
+    <button
+      class="bg-black font-color-white padding-15 margin-left-10 width-75"
+      [disabled]="!newFolderRootForm.valid"
+    >
+      Add
+    </button>
+    <button
+      class="padding-15 margin-left-10 width-75"
+      (click)="triggerCancelEvent()"
+      type="button"
+    >
+      Cancel
+    </button>
+  </form>
+  <p
+    *ngIf="!newFolderRootForm.valid && newFolderRootForm.touched"
+    class="font-color-red"
+  >
+    Folder's name cannot be blank.
+  </p>
+</div>
