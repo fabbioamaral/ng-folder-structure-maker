@@ -19,8 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.nodes$ = this.nodeService.getNodes();
 
-    this.nodes$.subscribe((nodes) => console.log(nodes));
-
     this.nodeService.init();
 
     this.initializeForm();
@@ -35,6 +33,7 @@ export class AppComponent implements OnInit {
   toggleFormDisplay() {
     this.newFolderRootForm.reset();
     this.showFormToAddFolderToRoot = !this.showFormToAddFolderToRoot;
+    this.nodes$.subscribe((nodes) => console.log(nodes));
   }
 
   addFolderToRoot(folderName: string) {
