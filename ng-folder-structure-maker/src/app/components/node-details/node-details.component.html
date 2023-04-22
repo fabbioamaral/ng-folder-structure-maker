@@ -16,5 +16,13 @@
     >
       {{ node?.name }}
     </p>
+    <div class="buttons-div">
+      <button class="margin-left-5" *ngIf="node?.type === 'folder'">
+        <img class="width-10" [src]="'assets/icons/add.png'" />
+      </button>
+      <button class="margin-left-5">
+        <img class="width-10" [src]="'assets/icons/delete.png'" />
+      </button>
+    </div>
   </div>
 </div>
