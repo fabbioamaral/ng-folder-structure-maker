@@ -24,8 +24,15 @@ export class NodeDetailsComponent {
   }
 
   createNewNamedNode(nodeType: NodeType) {
+    let name;
+    if (nodeType === 'file') {
+      name = 'New File';
+    } else {
+      name = 'New Folder';
+    }
+
     const newNode: NodeModel = {
-      name: 'abc',
+      name,
       type: nodeType,
       id: this.node!.id,
       children: [],
